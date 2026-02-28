@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Incredible India — Land of Timeless Wonders</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Cormorant+Garamond:wght@300;400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --saffron: #FF6B00;
+    --deep-saffron: #E85D00;
+    --gold: #D4A017;
+    --gold-light: #F2C94C;
+    --cream: #FDF6EC;
+    --deep-red: #8B1A1A;
+    --forest: #1A4A2E;
+    --midnight: #0D0D0D;
+    --text-dark: #1A1108;
+    --text-mid: #5C4A2A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    padding: 18px 60px;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(13,13,13,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212,160,23,0.2);
+  }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 900;
+    color: var(--gold-light);
+    letter-spacing: 2px;
+    text-decoration: none;
+  }
+  .logo span { color: var(--saffron); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a {
+    color: rgba(255,255,255,0.8); text-decoration: none;
+    font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-cta {
+    background: var(--saffron); color: white;
+    padding: 10px 24px; border-radius: 2px;
+    font-size: 0.8rem; letter-spacing: 1.5px; text-transform: uppercase;
+    text-decoration: none; font-weight: 500;
+    transition: background 0.3s;
+  }
+  .nav-cta:hover { background: var(--deep-saffron); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--midnight);
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 50%, rgba(255,107,0,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 80% at 20% 80%, rgba(212,160,23,0.1) 0%, transparent 50%),
+      linear-gradient(135deg, #0D0D0D 0%, #1a0f00 100%);
+  }
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23D4A017' fill-opacity='1'%3E%3Cpath d='M30 30m-10 0a10 10 0 1 1 20 0a10 10 0 1 1-20 0M30 5l3 8h8l-6.5 5 2.5 8L30 21l-7 5 2.5-8L19 13h8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    padding: 0 60px; max-width: 800px;
+    animation: fadeUp 1.2s ease both;
+  }
+  .hero-badge {
+    display: inline-block;
+    border: 1px solid var(--gold); color: var(--gold);
+    padding: 6px 18px; border-radius: 2px;
+    font-size: 0.75rem; letter-spacing: 3px; text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 900; line-height: 1.0;
+    color: white;
+    margin-bottom: 12px;
+  }
+  .hero h1 em {
+    font-style: italic; color: var(--saffron);
+    display: block;
+  }
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem; font-weight: 300;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 48px; line-height: 1.6;
+  }
+  .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--saffron); color: white;
+    padding: 16px 36px; border-radius: 2px;
+    font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; font-weight: 500;
+    transition: all 0.3s;
+    border: 2px solid var(--saffron);
+  }
+  .btn-primary:hover { background: transparent; color: var(--saffron); }
+  .btn-outline {
+    background: transparent; color: white;
+    padding: 16px 36px; border-radius: 2px;
+    font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase;
+    text-decoration: none; font-weight: 500;
+    border: 2px solid rgba(255,255,255,0.3);
+    transition: all 0.3s;
+  }
+  .btn-outline:hover { border-color: white; }
+
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    color: rgba(255,255,255,0.4); font-size: 0.75rem; letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .scroll-line {
+    width: 1px; height: 60px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+    animation: scrollPulse 2s ease infinite;
+  }
+
+  /* STATS BAND */
+  .stats-band {
+    background: var(--saffron);
+    padding: 28px 60px;
+    display: flex; justify-content: space-around; align-items: center;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem; font-weight: 900; color: white;
+  }
+  .stat-label {
+    font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;
+    color: rgba(255,255,255,0.8);
+  }
+
+  /* SECTION COMMONS */
+  section { padding: 100px 60px; }
+  .section-tag {
+    display: inline-block;
+    color: var(--saffron); font-size: 0.75rem; letter-spacing: 3px;
+    text-transform: uppercase; font-weight: 500;
+    margin-bottom: 16px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900; line-height: 1.15;
+    margin-bottom: 20px;
+    color: var(--text-dark);
+  }
+  .section-body {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; color: var(--text-mid);
+    line-height: 1.8; max-width: 560px;
+  }
+
+  /* CULTURE SECTION */
+  .culture { background: var(--cream); }
+  .culture-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center;
+    margin-top: 70px;
+  }
+  .culture-visual {
+    position: relative;
+    height: 520px;
+  }
+  .culture-card {
+    position: absolute;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  }
+  .culture-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .card-main { width: 320px; height: 400px; top: 0; left: 0; }
+  .card-float { width: 200px; height: 240px; bottom: 0; right: 30px; border: 4px solid white; }
+  .culture-badge {
+    position: absolute; top: -20px; right: 0;
+    background: var(--saffron); color: white;
+    padding: 16px 20px; border-radius: 4px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    text-align: center; line-height: 1.2;
+    box-shadow: 0 10px 30px rgba(255,107,0,0.3);
+  }
+
+  /* DESTINATIONS */
+  .destinations { background: #0D0D0D; }
+  .destinations .section-title { color: white; }
+  .destinations .section-tag { color: var(--gold-light); }
+  .dest-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 60px;
+  }
+  .dest-card {
+    position: relative; overflow: hidden;
+    height: 420px; cursor: pointer;
+  }
+  .dest-card:first-child { grid-row: span 2; height: 100%; }
+  .dest-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    filter: brightness(0.7);
+  }
+  .dest-card:hover .dest-img { transform: scale(1.06); filter: brightness(0.5); }
+  .dest-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%);
+    padding: 30px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+  }
+  .dest-region {
+    font-size: 0.7rem; letter-spacing: 2.5px; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 6px;
+  }
+  .dest-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem; font-weight: 900;
+    color: white; line-height: 1.1;
+  }
+  .dest-desc {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem; color: rgba(255,255,255,0.7);
+    margin-top: 8px; line-height: 1.5;
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+  .dest-card:hover .dest-desc { max-height: 80px; }
+
+  /* EXPERIENCES */
+  .experiences { background: var(--cream); }
+  .exp-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px; margin-top: 60px;
+  }
+  .exp-card {
+    background: white;
+    padding: 36px 28px;
+    border-radius: 4px;
+    border-bottom: 4px solid transparent;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  }
+  .exp-card:hover { border-bottom-color: var(--saffron); transform: translateY(-6px); }
+  .exp-icon {
+    font-size: 2.5rem; margin-bottom: 20px;
+    display: block;
+  }
+  .exp-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700;
+    color: var(--text-dark); margin-bottom: 12px;
+  }
+  .exp-body {
+    font-size: 0.9rem; color: var(--text-mid);
+    line-height: 1.7;
+  }
+
+  /* FESTIVALS */
+  .festivals { background: var(--deep-red); overflow: hidden; position: relative; }
+  .fest-bg {
+    position: absolute; inset: 0; opacity: 0.06;
+    background: radial-gradient(circle at 30% 50%, var(--gold) 0%, transparent 60%);
+  }
+  .festivals .section-title { color: white; }
+  .festivals .section-tag { color: var(--gold-light); }
+  .festivals .section-body { color: rgba(255,255,255,0.7); }
+  .fest-scroll {
+    display: flex; gap: 24px;
+    margin-top: 60px; overflow-x: auto;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+  }
+  .fest-scroll::-webkit-scrollbar { display: none; }
+  .fest-card {
+    flex: 0 0 280px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px; overflow: hidden;
+  }
+  .fest-img { width: 100%; height: 180px; object-fit: cover; }
+  .fest-info { padding: 24px; }
+  .fest-month {
+    font-size: 0.7rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold-light); margin-bottom: 8px;
+  }
+  .fest-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem; font-weight: 700; color: white;
+    margin-bottom: 8px;
+  }
+  .fest-desc { font-size: 0.85rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
+
+  /* CUISINE */
+  .cuisine { background: white; }
+  .cuisine-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; align-items: center; margin-top: 60px; }
+  .cuisine-dishes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .dish-card {
+    position: relative; border-radius: 4px; overflow: hidden;
+    height: 200px; cursor: pointer;
+  }
+  .dish-card:first-child { grid-column: span 2; height: 240px; }
+  .dish-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.75); transition: all 0.4s; }
+  .dish-card:hover img { filter: brightness(0.5); transform: scale(1.05); }
+  .dish-label {
+    position: absolute; bottom: 16px; left: 16px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem; font-weight: 700; color: white;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials { background: var(--midnight); }
+  .testimonials .section-title { color: white; }
+  .testimonials .section-tag { color: var(--gold-light); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
+  .testi-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 4px; padding: 36px;
+  }
+  .stars { color: var(--gold-light); font-size: 1rem; margin-bottom: 20px; }
+  .testi-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; color: rgba(255,255,255,0.8);
+    line-height: 1.8; margin-bottom: 24px;
+    font-style: italic;
+  }
+  .testi-author { display: flex; align-items: center; gap: 14px; }
+  .author-avatar {
+    width: 46px; height: 46px; border-radius: 50%;
+    background: var(--saffron); display: flex; align-items: center; justify-content: center;
+    font-weight: 700; color: white; font-size: 1.1rem;
+  }
+  .author-name { font-weight: 600; color: white; font-size: 0.95rem; }
+  .author-country { font-size: 0.8rem; color: rgba(255,255,255,0.45); }
+
+  /* PLAN SECTION */
+  .plan { background: var(--cream); }
+  .plan-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; }
+  .plan-card {
+    border: 2px solid rgba(0,0,0,0.08); border-radius: 4px;
+    padding: 44px 36px; position: relative; transition: all 0.3s;
+  }
+  .plan-card.featured {
+    background: var(--saffron); border-color: var(--saffron);
+    color: white;
+  }
+  .plan-card:not(.featured):hover { border-color: var(--saffron); transform: translateY(-4px); }
+  .plan-popular {
+    position: absolute; top: -14px; right: 24px;
+    background: var(--gold); color: var(--text-dark);
+    padding: 4px 14px; border-radius: 20px;
+    font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; font-weight: 700;
+  }
+  .plan-days {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem; font-weight: 900;
+    line-height: 1; margin-bottom: 8px;
+  }
+  .plan-name { font-size: 1.1rem; font-weight: 600; margin-bottom: 24px; opacity: 0.7; }
+  .plan-features { list-style: none; margin-bottom: 36px; }
+  .plan-features li { padding: 8px 0; font-size: 0.9rem; border-bottom: 1px solid rgba(0,0,0,0.07); }
+  .plan-card.featured .plan-features li { border-color: rgba(255,255,255,0.15); }
+  .plan-features li::before { content: "✓  "; color: var(--forest); }
+  .plan-card.featured .plan-features li::before { color: rgba(255,255,255,0.9); }
+  .plan-btn {
+    display: block; text-align: center; text-decoration: none;
+    padding: 14px; border-radius: 2px;
+    font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; font-weight: 600;
+    transition: all 0.3s;
+  }
+  .plan-card:not(.featured) .plan-btn {
+    border: 2px solid var(--text-dark); color: var(--text-dark);
+  }
+  .plan-card:not(.featured) .plan-btn:hover { background: var(--saffron); border-color: var(--saffron); color: white; }
+  .plan-card.featured .plan-btn { background: white; color: var(--saffron); }
+
+  /* FOOTER */
+  footer {
+    background: #0a0a0a;
+    padding: 70px 60px 40px;
+    border-top: 1px solid rgba(212,160,23,0.15);
+  }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 50px; }
+  .footer-brand .logo { display: block; margin-bottom: 16px; font-size: 1.8rem; }
+  .footer-tagline { color: rgba(255,255,255,0.45); font-size: 0.9rem; line-height: 1.7; margin-bottom: 24px; }
+  .footer-social { display: flex; gap: 12px; }
+  .social-btn {
+    width: 38px; height: 38px; border-radius: 2px;
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem;
+    transition: all 0.3s;
+  }
+  .social-btn:hover { background: var(--saffron); border-color: var(--saffron); color: white; }
+  .footer-col h4 {
+    font-family: 'Playfair Display', serif; color: var(--gold-light);
+    font-size: 1rem; margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; transition: color 0.3s; }
+  .footer-col ul a:hover { color: var(--gold-light); }
+  .footer-bottom {
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.07); padding-top: 28px;
+    color: rgba(255,255,255,0.3); font-size: 0.8rem;
+  }
+  .footer-flag { display: flex; align-items: center; gap: 8px; }
+  .flag-stripe { width: 28px; height: 5px; border-radius: 1px; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+  }
+
+  .reveal {
+    opacity: 0; transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* DIVIDER */
+  .om-divider {
+    text-align: center; padding: 40px;
+    font-size: 2rem; color: var(--gold);
+    opacity: 0.3;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+    section { padding: 70px 24px; }
+    .hero-content { padding: 0 24px; }
+    .culture-grid, .cuisine-layout { grid-template-columns: 1fr; }
+    .dest-grid { grid-template-columns: 1fr; }
+    .dest-card:first-child { grid-row: span 1; height: 420px; }
+    .exp-grid { grid-template-columns: 1fr 1fr; }
+    .testi-grid { grid-template-columns: 1fr; }
+    .plan-cards { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .stats-band { padding: 24px; }
+    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="#" class="logo">INCREDIBLE <span>INDIA</span></a>
+  <ul class="nav-links">
+    <li><a href="#destinations">Destinations</a></li>
+    <li><a href="#culture">Culture</a></li>
+    <li><a href="#experiences">Experiences</a></li>
+    <li><a href="#festivals">Festivals</a></li>
+    <li><a href="#cuisine">Cuisine</a></li>
+  </ul>
+  <a href="#plan" class="nav-cta">Plan Your Trip</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🇮🇳 &nbsp; Ministry of Tourism — India</div>
+    <h1>
+      Land of<br>
+      <em>Timeless<br>Wonders</em>
+    </h1>
+    <p class="hero-sub">
+      5,000 years of civilization. 29 UNESCO World Heritage Sites.<br>
+      A billion stories waiting to be discovered.
+    </p>
+    <div class="hero-buttons">
+      <a href="#destinations" class="btn-primary">Explore Destinations</a>
+      <a href="#experiences" class="btn-outline">Our Experiences</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS BAND -->
+<div class="stats-band">
+  <div class="stat-item">
+    <div class="stat-num">29</div>
+    <div class="stat-label">UNESCO Heritage Sites</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">22+</div>
+    <div class="stat-label">Official Languages</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">12M+</div>
+    <div class="stat-label">Annual Tourists</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">5000</div>
+    <div class="stat-label">Years of History</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">28</div>
+    <div class="stat-label">States & Cultures</div>
+  </div>
+</div>
+
+<!-- CULTURE -->
+<section class="culture" id="culture">
+  <div class="reveal">
+    <div class="section-tag">🎭 Rich Heritage</div>
+    <h2 class="section-title">A Civilization That<br>Never Stopped Creating</h2>
+  </div>
+  <div class="culture-grid">
+    <div class="culture-visual reveal">
+      <div class="culture-card card-main">
+        <img src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=700&q=80" alt="Taj Mahal, Agra - Symbol of Eternal Love">
+      </div>
+      <div class="culture-card card-float">
+        <img src="https://images.unsplash.com/photo-1544233726-9f1d2b27be8b?w=400&q=80" alt="Classical Bharatanatyam Dance">
+      </div>
+      <div class="culture-badge">
+        India's Culture<br>— Unmatched
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-tag">Heritage & Art</div>
+      <h3 class="section-title" style="font-size:2rem;">Where Ancient Wisdom<br>Meets Living Tradition</h3>
+      <p class="section-body">
+        From the snow-capped peaks of the Himalayas to the sun-kissed beaches of Kerala, India's cultural tapestry is woven with classical dance forms, Vedic philosophy, Mughal architecture, and spiritual traditions that have guided humanity for millennia.
+      </p>
+      <p class="section-body" style="margin-top:16px;">
+        India is not a destination — it is an awakening. Every state is a new world, every city a new story, every meal a ceremony of belonging.
+      </p>
+      <a href="#destinations" class="btn-primary" style="display:inline-block;margin-top:36px;">Discover Culture</a>
+    </div>
+  </div>
+</section>
+
+<!-- DESTINATIONS -->
+<section class="destinations" id="destinations">
+  <div class="reveal" style="max-width:600px;">
+    <div class="section-tag">✦ Top Destinations</div>
+    <h2 class="section-title" style="color:white;">India's Most<br>Iconic Wonders</h2>
+  </div>
+  <div class="dest-grid reveal">
+    <div class="dest-card">
+      <img class="dest-img" src="https://images.unsplash.com/photo-1564507592333-c60657eea523?w=800&q=80" alt="Taj Mahal at Sunrise">
+      <div class="dest-overlay">
+        <div class="dest-region">Uttar Pradesh</div>
+        <div class="dest-name">Taj Mahal<br>Agra</div>
+        <div class="dest-desc">The jewel of Mughal architecture — a monument to eternal love, built by Emperor Shah Jahan in 1632 and recognized worldwide as a UNESCO World Heritage Site.</div>
+      </div>
+    </div>
+    <div class="dest-card">
+      <img class="dest-img" src="https://images.unsplash.com/photo-1514222134-b57cbb8ce073?w=600&q=80" alt="Kerala Backwaters">
+      <div class="dest-overlay">
+        <div class="dest-region">Kerala</div>
+        <div class="dest-name">God's Own Country</div>
+        <div class="dest-desc">Tranquil backwaters, lush tea estates, and pristine beaches that embody serenity.</div>
+      </div>
+    </div>
+    <div class="dest-card">
+      <img class="dest-img" src="https://images.unsplash.com/photo-1570168007204-dfb528c6958f?w=600&q=80" alt="Jaipur Pink City">
+      <div class="dest-overlay">
+        <div class="dest-region">Rajasthan</div>
+        <div class="dest-name">Jaipur — Pink City</div>
+        <div class="dest-desc">Forts, palaces, and bazaars alive with colour and royal heritage.</div>
+      </div>
+    </div>
+    <div class="dest-card">
+      <img class="dest-img" src="https://images.unsplash.com/photo-1566438480900-0609be27a4be?w=600&q=80" alt="Varanasi Ghats">
+      <div class="dest-overlay">
+        <div class="dest-region">Uttar Pradesh</div>
+        <div class="dest-name">Varanasi — City of Light</div>
+        <div class="dest-desc">The oldest living city on earth — where the Ganges holds the secrets of eternity.</div>
+      </div>
+    </div>
+    <div class="dest-card">
+      <img class="dest-img" src="https://images.unsplash.com/photo-1548013146-72479768bada?w=600&q=80" alt="Himalayas">
+      <div class="dest-overlay">
+        <div class="dest-region">Himachal Pradesh</div>
+        <div class="dest-name">The Himalayas</div>
+        <div class="dest-desc">The roof of the world — home to ancient monasteries, alpine meadows, and spiritual adventure.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCES -->
+<section class="experiences" id="experiences">
+  <div class="reveal">
+    <div class="section-tag">🌺 Unique Experiences</div>
+    <h2 class="section-title">Journeys That<br>Transform You</h2>
+  </div>
+  <div class="exp-grid reveal">
+    <div class="exp-card">
+      <span class="exp-icon">🧘</span>
+      <div class="exp-title">Yoga & Wellness</div>
+      <p class="exp-body">Immerse yourself in the birthplace of yoga. From Rishikesh ashrams to Ayurveda retreats in Kerala, heal body and mind.</p>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">🏯</span>
+      <div class="exp-title">Heritage Walks</div>
+      <p class="exp-body">Walk through living history. From Mughal forts to Chola temples, every stone whispers stories of empires that shaped the world.</p>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">🐅</span>
+      <div class="exp-title">Wildlife Safari</div>
+      <p class="exp-body">Encounter the Royal Bengal Tiger at Ranthambore, spot elephants in Kaziranga, and witness one of Earth's greatest biodiversity hotspots.</p>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">🎨</span>
+      <div class="exp-title">Art & Handicraft</div>
+      <p class="exp-body">From the pashmina weavers of Kashmir to the block printers of Jaipur — India's artisans carry centuries of mastery in their hands.</p>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">⛵</span>
+      <div class="exp-title">Coastal Escapes</div>
+      <p class="exp-body">Goa's colonial beaches, Andaman's pristine waters, and Lakshadweep's coral atolls — India's 7,500km coastline is endlessly diverse.</p>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">🏔️</span>
+      <div class="exp-title">Mountain Treks</div>
+      <p class="exp-body">Trek through Ladakh's high-altitude deserts, Sikkim's rhododendron forests, and the Himalayan trails that challenge and inspire.</p>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">🎭</span>
+      <div class="exp-title">Classical Arts</div>
+      <p class="exp-body">Witness Bharatanatyam, Kathak, Odissi — India's classical dance forms are living poetry, performing stories of gods and mortals.</p>
+    </div>
+    <div class="exp-card">
+      <span class="exp-icon">🚂</span>
+      <div class="exp-title">Scenic Rail Journeys</div>
+      <p class="exp-body">The Palace on Wheels, Darjeeling Himalayan Railway — India's legendary trains are journeys through landscapes and cultures unlike any other.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FESTIVALS -->
+<section class="festivals" id="festivals">
+  <div class="fest-bg"></div>
+  <div class="reveal">
+    <div class="section-tag">🎊 Festivals</div>
+    <h2 class="section-title">A Country That<br>Celebrates All Year</h2>
+    <p class="section-body">India has over 100 major festivals — a land where joy is a national tradition.</p>
+  </div>
+  <div class="fest-scroll reveal">
+    <div class="fest-card">
+      <img class="fest-img" src="https://images.unsplash.com/photo-1599030371935-a3793028c33a?w=400&q=80" alt="Holi Festival of Colors">
+      <div class="fest-info">
+        <div class="fest-month">March</div>
+        <div class="fest-name">Holi</div>
+        <div class="fest-desc">The Festival of Colors — where strangers become friends and streets transform into rainbows of joy.</div>
+      </div>
+    </div>
+    <div class="fest-card">
+      <img class="fest-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80" alt="Diwali Festival of Lights">
+      <div class="fest-info">
+        <div class="fest-month">October / November</div>
+        <div class="fest-name">Diwali</div>
+        <div class="fest-desc">The Festival of Lights — a million diyas illuminate the night, celebrating the triumph of light over darkness.</div>
+      </div>
+    </div>
+    <div class="fest-card">
+      <img class="fest-img" src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?w=400&q=80" alt="Navratri Dance">
+      <div class="fest-info">
+        <div class="fest-month">September / October</div>
+        <div class="fest-name">Navratri</div>
+        <div class="fest-desc">Nine nights of devotion, garba dancing, and vibrant celebrations across Gujarat and all of India.</div>
+      </div>
+    </div>
+    <div class="fest-card">
+      <img class="fest-img" src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&q=80" alt="Kumbh Mela">
+      <div class="fest-info">
+        <div class="fest-month">Every 4 Years</div>
+        <div class="fest-name">Kumbh Mela</div>
+        <div class="fest-desc">The world's largest human gathering — millions of pilgrims converge at sacred rivers for spiritual renewal.</div>
+      </div>
+    </div>
+    <div class="fest-card">
+      <img class="fest-img" src="https://images.unsplash.com/photo-1625244724120-1fd1d34d00f6?w=400&q=80" alt="Eid celebration">
+      <div class="fest-info">
+        <div class="fest-month">Varies</div>
+        <div class="fest-name">Eid ul-Fitr</div>
+        <div class="fest-desc">Celebrated with grandeur across India — streets fill with prayers, feasts, and the warmth of community.</div>
+      </div>
+    </div>
+    <div class="fest-card">
+      <img class="fest-img" src="https://images.unsplash.com/photo-1604076913837-52ab5629fde9?w=400&q=80" alt="Onam Kerala">
+      <div class="fest-info">
+        <div class="fest-month">August / September</div>
+        <div class="fest-name">Onam</div>
+        <div class="fest-desc">Kerala's harvest festival — a spectacular blend of flower carpets, boat races, and traditional feasts.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CUISINE -->
+<section class="cuisine" id="cuisine">
+  <div class="cuisine-layout">
+    <div class="cuisine-dishes reveal">
+      <div class="dish-card">
+        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80" alt="Indian Curry - Butter Chicken">
+        <div class="dish-label">Butter Chicken — Delhi</div>
+      </div>
+      <div class="dish-card">
+        <img src="https://images.unsplash.com/photo-1567188040759-fb8a883dc6d8?w=400&q=80" alt="Masala Dosa South India">
+        <div class="dish-label">Masala Dosa — South India</div>
+      </div>
+      <div class="dish-card">
+        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=400&q=80" alt="Biryani">
+        <div class="dish-label">Biryani — Hyderabad</div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="section-tag">🍛 Indian Cuisine</div>
+      <h2 class="section-title">Flavors That<br>Tell Stories</h2>
+      <p class="section-body">
+        Indian cuisine is one of the world's most diverse and celebrated culinary traditions. From the rich gravies of the North to the coconut-infused curries of the South, from the street chaats of Mumbai to the royal biryanis of Lucknow — every meal is an event.
+      </p>
+      <p class="section-body" style="margin-top:16px;">
+        With over 8 million restaurants and dhabas, India feeds the soul as much as the stomach. Food here is love, devotion, and celebration all at once.
+      </p>
+      <div style="display:flex;gap:20px;margin-top:36px;flex-wrap:wrap;">
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--saffron);">30+</div>
+          <div style="font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid);">Distinct Cuisines</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--saffron);">200+</div>
+          <div style="font-size:0.8rem;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-mid);">Unique Spices Used</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials">
+  <div class="reveal">
+    <div class="section-tag">💬 Traveller Stories</div>
+    <h2 class="section-title" style="color:white;">Voices from Around<br>the World</h2>
+  </div>
+  <div class="testi-grid reveal">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-quote">"India changed me. I arrived as a tourist and left as a different person. The warmth of the people, the colours, the chaos — it's the most alive I've ever felt."</p>
+      <div class="testi-author">
+        <div class="author-avatar">S</div>
+        <div>
+          <div class="author-name">Sarah Mitchell</div>
+          <div class="author-country">🇺🇸 United States</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-quote">"From the Himalayas to Hampi, from Varanasi at dawn to Kerala's backwaters at sunset — India offers a thousand lifetimes in a single journey."</p>
+      <div class="testi-author">
+        <div class="author-avatar">L</div>
+        <div>
+          <div class="author-name">Lukas Bauer</div>
+          <div class="author-country">🇩🇪 Germany</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-quote">"The food alone is worth the journey. But then came the temples, the music, the festivals — India is not just a country. It is an experience of pure humanity."</p>
+      <div class="testi-author">
+        <div class="author-avatar">A</div>
+        <div>
+          <div class="author-name">Aiko Yamamoto</div>
+          <div class="author-country">🇯🇵 Japan</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PLAN -->
+<section class="plan" id="plan">
+  <div class="reveal" style="text-align:center;max-width:560px;margin:0 auto 0;">
+    <div class="section-tag">🗺️ Tour Packages</div>
+    <h2 class="section-title">Choose Your<br>India Journey</h2>
+    <p class="section-body" style="margin:0 auto;">From quick golden triangle escapes to immersive grand tours — we've crafted every itinerary with care.</p>
+  </div>
+  <div class="plan-cards reveal">
+    <div class="plan-card">
+      <div class="plan-days">7</div>
+      <div class="plan-name">Days — Golden Triangle</div>
+      <ul class="plan-features">
+        <li>Delhi · Agra · Jaipur</li>
+        <li>Taj Mahal at Sunrise</li>
+        <li>Rajput Fort Trails</li>
+        <li>Cultural Food Tour</li>
+        <li>4-Star Accommodation</li>
+      </ul>
+      <a href="/cdn-cgi/l/email-protection#d4bdbab2bb94bdbab7a6b1b0bdb6b8b1bdbab0bdb5fab7bbb9" class="plan-btn">Enquire Now</a>
+    </div>
+    <div class="plan-card featured">
+      <div class="plan-popular">Most Popular</div>
+      <div class="plan-days">14</div>
+      <div class="plan-name">Days — Grand India</div>
+      <ul class="plan-features">
+        <li>North + South + West India</li>
+        <li>Varanasi River Ceremony</li>
+        <li>Kerala Houseboat</li>
+        <li>Yoga Retreat in Rishikesh</li>
+        <li>5-Star Heritage Hotels</li>
+      </ul>
+      <a href="/cdn-cgi/l/email-protection#a0c9cec6cfe0c9cec3d2c5c4c9c2ccc5c9cec4c9c18ec3cfcd" class="plan-btn">Enquire Now</a>
+    </div>
+    <div class="plan-card">
+      <div class="plan-days">21</div>
+      <div class="plan-name">Days — Complete India</div>
+      <ul class="plan-features">
+        <li>All Regions & Terrains</li>
+        <li>Himalayan Expedition</li>
+        <li>Wildlife Safari (Ranthambore)</li>
+        <li>Kumbh Mela / Festival Tour</li>
+        <li>Luxury Private Guide</li>
+      </ul>
+      <a href="/cdn-cgi/l/email-protection#fd94939b92bd94939e8f9899949f9198949399949cd39e9290" class="plan-btn">Enquire Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo">INCREDIBLE <span>INDIA</span></a>
+      <p class="footer-tagline">Promoting the culture, heritage and natural beauty of India to the world. Every journey here is a story for a lifetime.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn">f</a>
+        <a href="#" class="social-btn">in</a>
+        <a href="#" class="social-btn">tw</a>
+        <a href="#" class="social-btn">yt</a>
+        <a href="#" class="social-btn">ig</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Destinations</h4>
+      <ul>
+        <li><a href="#">Rajasthan</a></li>
+        <li><a href="#">Kerala</a></li>
+        <li><a href="#">Goa</a></li>
+        <li><a href="#">Himalayas</a></li>
+        <li><a href="#">Varanasi</a></li>
+        <li><a href="#">Andaman Islands</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Experiences</h4>
+      <ul>
+        <li><a href="#">Yoga Retreats</a></li>
+        <li><a href="#">Wildlife Safaris</a></li>
+        <li><a href="#">Heritage Tours</a></li>
+        <li><a href="#">Culinary Tours</a></li>
+        <li><a href="#">Festival Tours</a></li>
+        <li><a href="#">Spiritual Journeys</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Plan & Visit</h4>
+      <ul>
+        <li><a href="#">Visa Information</a></li>
+        <li><a href="#">Best Time to Visit</a></li>
+        <li><a href="#">Travel Tips</a></li>
+        <li><a href="#">Currency & Budget</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#e980878f86a980878a9b8c8d808b858c80878d8088c78a8684"><span class="__cf_email__" data-cfemail="adc4c3cbc2edc4c3cedfc8c9c4cfc1c8c4c3c9c4cc83cec2c0">[email&#160;protected]</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-flag">
+      <div class="flag-stripe" style="background:#FF9933;"></div>
+      <div class="flag-stripe" style="background:#FFFFFF;"></div>
+      <div class="flag-stripe" style="background:#138808;"></div>
+      <span>Made with ❤️ for India — Atithi Devo Bhava (Guest is God)</span>
+    </div>
+    <span>© 2026 Incredible India. All Rights Reserved.</span>
+  </div>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // Stagger children if any
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+
+  // Stagger reveal for grids
+  document.querySelectorAll('.exp-grid.reveal, .testi-grid.reveal, .plan-cards.reveal, .dest-grid.reveal').forEach(grid => {
+    grid.addEventListener('transitionstart', () => {
+      Array.from(grid.children).forEach((child, i) => {
+        child.style.transitionDelay = `${i * 0.08}s`;
+        child.style.opacity = '0';
+        child.style.transform = 'translateY(24px)';
+        child.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      });
+    });
+  });
+
+  // Better stagger using observer per child
+  document.querySelectorAll('.exp-card, .dest-card, .testi-card, .plan-card').forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(28px)';
+    card.style.transition = `opacity 0.6s ease ${(i % 8) * 0.1}s, transform 0.6s ease ${(i % 8) * 0.1}s`;
+    const cardObserver = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+        cardObse
